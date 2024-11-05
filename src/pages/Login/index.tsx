@@ -28,6 +28,11 @@ const Login = () => {
     reValidateMode: "onChange",
   });
 
+  const email = watch("email"); 
+  const password = watch("password");
+
+  const isEnabled = email && password && isValid;
+
   return (
     <Container>
       <LoginContainer>
@@ -49,7 +54,7 @@ const Login = () => {
             errorMessage={errors?.password?.message}
           />
           <Spacing />
-          <Button title="Entrar" />
+          <Button title="Entrar" disabled={!isEnabled}/>
         </Column>
       </LoginContainer>
     </Container>
